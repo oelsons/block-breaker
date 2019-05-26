@@ -5,21 +5,21 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     //parameters
-    [SerializeField] int breakableBlocks; // Serialized for debugging purposes
+    [SerializeField] int blocks; // Serialized for debugging purposes
 
     // Cached reference
     SceneLoader sceneLoader;
 
-    public void CountBreakableBlocks()
+    public void CountBlocks()
     {
-        breakableBlocks++;
+        blocks++;
         sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
     public void BlockDestroyed()
     {
-        breakableBlocks--;
-        if(breakableBlocks <= 0)
+        blocks--;
+        if(blocks <= 0)
         {
             sceneLoader.LoadNextScene();
         }
